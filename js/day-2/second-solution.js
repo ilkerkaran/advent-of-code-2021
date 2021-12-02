@@ -7,7 +7,6 @@ module.exports = (arr) => {
     const val = +c[1]
     if (d == 'forward') {
       h += val
-      console.log(val, angle)
       v += (val * angle)
     } else if (d == 'up') {
       angle -= val
@@ -15,6 +14,5 @@ module.exports = (arr) => {
       angle += val
     }
   })
-  console.log(h, v)
   return h * v
 }
