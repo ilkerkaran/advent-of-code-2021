@@ -6,7 +6,7 @@ There are 2 main folders for Javascript and Python solutions named js and py res
 Both main folders contain a folder for each day problem.i.e day-1, day-2
 
 ## Execute Code
-You might need node & python installed on your environment to execute solutions
+You might need node & python installed on your environment to execute solutions.
 While having all, simply run the following in the command line while in the related directory.
 
 `node js/day-1/answer.js`
