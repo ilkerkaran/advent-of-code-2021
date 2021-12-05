@@ -24,6 +24,6 @@ const dummyCoordinates = dummyInput.split('\n').map((i) => i.split(' -> ')).map(
   }, {})
 }))
 // console.log(`First Dummy Answer is ${firstSolution(dummyCoordinates)}`)
-console.log(`Second Dummy Answer is ${secondSolution(dummyCoordinates)}`)
-// console.log(`First Answer is ${firstSolution(coordinates)}`)
+// console.log(`Second Dummy Answer is ${secondSolution(dummyCoordinates)}`)
+console.log(`First Answer is ${firstSolution(coordinates)}`)
 console.log(`Second Answer is ${secondSolution(coordinates)}`)

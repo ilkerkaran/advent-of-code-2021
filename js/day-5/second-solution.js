@@ -24,11 +24,9 @@ module.exports = (coordinates) => {
 
   for (let i = 0; i < coordinates.length; i++) {
     const coor = coordinates[i]
-    console.log(i, isDiagonal(coor))
     if (coor.a.x == coor.b.x
       || coor.a.y == coor.b.y
       || isDiagonal(coor)) {
-      console.log(i)
       fillMap(coor)
     }
   }

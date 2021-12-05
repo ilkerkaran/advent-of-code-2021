@@ -15,7 +15,6 @@ module.exports = (coordinates) => {
   for (let i = 0; i < coordinates.length; i++) {
     const coor = coordinates[i]
     if (coor.a.x == coor.b.x || coor.a.y == coor.b.y) {
-      console.log(i)
       fillMap(coor)
     }
   }
