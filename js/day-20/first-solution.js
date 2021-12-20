@@ -47,8 +47,12 @@ module.exports = (rawStr) => {
     return out
   }
   // print()
-  for (let i = 0; i < 50; i++) {
-    jokerPxl = enchancementArr[0] % 2 ? i % 2 : 0
+  for (let i = 0; i < 2; i++) {
+    if (enchancementArr[0] % 2) {
+      if (enchancementArr[enchancementArr.length - 1] % 2 == 0) jokerPxl = i % 2
+      else jokerPxl = i > 0 ? 1 : 0
+    }
+
     extendImg(jokerPxl)
     extendImg(jokerPxl)
     extendImg(jokerPxl)
@@ -59,11 +63,5 @@ module.exports = (rawStr) => {
     // print()
   }
   const sum = sumLights()
-  console.log('sum', sum)
+  return sum
 }
-// 6263
-// 5834
-// 5503
-// 5107
-// 5508
-// 5503
