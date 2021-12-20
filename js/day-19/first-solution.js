@@ -217,6 +217,7 @@ module.exports = (rawStr) => {
   }
 
   const matchScanners = (s1, s2) => {
+    if (s2.coor) return false
     const possibleS2LocMap = {}
     for (let i = 0; i < 24; i++) {
       for (let j = 0; j < s1.scannedBeacons.length; j++) {
@@ -255,11 +256,11 @@ module.exports = (rawStr) => {
     return match
   }
 
-  let offset = 0
-  while (offset < scannerMap.length - 1) {
-    const certainScanners = scannerMap.filter((s) => s.coor).slice(offset)
+  while (true) {
+    const certainScanners = scannerMap.filter((s) => s.coor)
+    if (scannerMap.length == certainScanners.length) break
     const uncertainScanners = scannerMap.filter((s) => !s.coor)
-    offset += iterateMixedScanners(certainScanners, uncertainScanners)
+    iterateMixedScanners(certainScanners, uncertainScanners)
   }
 
   // all scanned beacons are in the same domain now

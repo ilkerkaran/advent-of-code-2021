@@ -212,28 +212,10 @@ module.exports = (rawStr) => {
     const x = addCoor(s1Loc, ep1)
     const possibleS2Loc = subCoor(x, ep2)
     return possibleS2Loc
-    // const possibleMatches = [ep1]
-
-    // for (let i = 0; i < sArr1.length; i++) {
-    //   const s1 = sArr1[i]
-    //   if (isSame(ep1, s1)) continue
-    //   for (let j = 0; j < sArr2.length; j++) {
-    //     if (sArr1.length - j < 12 - possibleMatches.length) continue
-    //     const s2 = sArr2[j]
-    //     if (isSame(ep2, s2)) continue
-    //     const tmp = addCoor(s1Loc, s1)
-    //     const assertedS2Loc = subCoor(tmp, s2)
-    //     if (isSame(possibleS2Loc, assertedS2Loc)) {
-    //       possibleMatches.push(s1)
-    //       if (possibleMatches.length >= 12)
-    //         return [possibleS2Loc, possibleMatches]
-    //     }
-    //   }
-    // }
-    // return [possibleS2Loc, possibleMatches]
   }
 
   const matchScanners = (s1, s2) => {
+    if (s2.coor) return false
     const possibleS2LocMap = {}
     for (let i = 0; i < 24; i++) {
       for (let j = 0; j < s1.scannedBeacons.length; j++) {
@@ -277,11 +259,11 @@ module.exports = (rawStr) => {
     return false
   }
 
-  let offset = 0
-  while (offset < scannerMap.length - 1) {
-    const certainScanners = scannerMap.filter((s) => s.coor).slice(offset)
+  while (true) {
+    const certainScanners = scannerMap.filter((s) => s.coor)
+    if (scannerMap.length == certainScanners.length) break
     const uncertainScanners = scannerMap.filter((s) => !s.coor)
-    offset += iterateMixedScanners(certainScanners, uncertainScanners)
+    iterateMixedScanners(certainScanners, uncertainScanners)
   }
 
   const coors = scannerMap.map((s) => s.coor)
