@@ -1,0 +1,11 @@
+const input = require('./input')
+const dummy = require('./dummyInput')
+const firstSolution = require('./first-solution')
+const secondSolution = require('./second-solution')
+
+const dummyLines = dummy.split('\n')
+const lines = input.split('\n')
+console.log(`First Dummy Answer is ${firstSolution(dummyLines)}`)
+console.log(`Second Dummy Answer is ${secondSolution(dummyLines)}`)
+console.log(`First Answer is ${firstSolution(lines)}`)
+console.log(`Second Answer is ${secondSolution(lines)}`)
